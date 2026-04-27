@@ -5,6 +5,7 @@ import Hero from '@/components/Hero'
 import Building from '@/components/Building'
 import Experience from '@/components/Experience'
 import KnowMe from '@/components/KnowMe'
+import MusicSection from '@/components/MusicSection'
 import Footer from '@/components/Footer'
 import StarField from '@/components/StarField'
 import StatusBar from '@/components/StatusBar'
@@ -29,6 +30,7 @@ export default async function Home() {
         <Hero />
         <Building projects={projects} />
         <Experience items={experience} />
+        <MusicSection />
         <KnowMe strips={strips} />
         <Footer />
       </main>

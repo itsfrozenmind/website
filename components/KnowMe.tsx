@@ -11,7 +11,7 @@ export default function KnowMe({ strips }: { strips: Strip[] }) {
   return (
     <section className="relative z-10 max-w-5xl mx-auto px-6 md:px-12 pb-24">
       <div className="mb-10">
-        <p className="mono mb-2" style={{ color: 'var(--muted)' }}>03 — KNOW ME</p>
+        <p className="mono mb-2" style={{ color: 'var(--muted)' }}>05 — KNOW ME</p>
         <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 300 }}>The rest of it</h2>
       </div>
 
