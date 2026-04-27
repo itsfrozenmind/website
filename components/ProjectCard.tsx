@@ -10,10 +10,10 @@ interface Project {
   image?: string
 }
 
-const statusConfig: Record<string, { label: string; color: string }> = {
-  Live:     { label: 'LIVE',     color: '#4ADE80' },
-  Building: { label: 'BUILDING', color: 'rgba(240,237,232,0.5)' },
-  Paused:   { label: 'PAUSED',   color: 'rgba(240,237,232,0.2)' },
+const statusConfig: Record<string, { label: string; color: string; bg: string }> = {
+  Live:     { label: 'SHIPPED',  color: '#5B8A58', bg: 'rgba(91,138,88,0.12)'  },
+  Building: { label: 'BUILDING', color: '#C47040', bg: 'rgba(196,112,64,0.12)' },
+  Paused:   { label: 'PAUSED',   color: '#7A7568', bg: 'rgba(122,117,104,0.1)' },
 }
 
 export default function ProjectCard({ project }: { project: Project }) {
@@ -23,27 +23,32 @@ export default function ProjectCard({ project }: { project: Project }) {
     <Link href={`/${project.slug.current}`} className="group block" data-project-card="true">
       <div
         data-project-card="true"
-        className="rounded-lg overflow-hidden transition-all duration-300 group-hover:scale-[1.02]"
-        style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid var(--border)' }}
+        className="rounded-xl overflow-hidden transition-all duration-200 group-hover:shadow-md group-hover:-translate-y-0.5"
+        style={{ background: 'var(--surface)', border: '1.5px solid var(--border-solid)' }}
       >
-        <div className="aspect-video relative overflow-hidden" style={{ background: 'rgba(255,255,255,0.02)' }}>
+        <div className="aspect-video relative overflow-hidden" style={{ background: 'var(--surface-2)' }}>
           {project.image ? (
-            <Image src={project.image} alt={project.title} fill className="object-cover opacity-60 group-hover:opacity-80 transition-opacity" unoptimized />
+            <Image src={project.image} alt={project.title} fill className="object-cover" unoptimized />
           ) : (
             <div className="w-full h-full flex items-center justify-center">
-              <span style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '2.5rem', color: 'rgba(240,237,232,0.1)', fontWeight: 300 }}>
+              <span style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '2.5rem', color: 'var(--border-solid)', fontWeight: 300 }}>
                 {project.title[0]}
               </span>
             </div>
           )}
         </div>
-        <div className="p-4" style={{ borderTop: '1px solid var(--border)' }}>
-          <div className="flex items-center justify-between mb-1.5">
+        <div className="p-4">
+          <div className="flex items-center justify-between mb-1">
             <h3 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.15rem', fontWeight: 400 }}>{project.title}</h3>
-            <span className="mono" style={{ color: status.color, fontSize: '0.6rem' }}>{status.label}</span>
+            <span
+              className="mono px-2 py-0.5 rounded-full"
+              style={{ background: status.bg, color: status.color, fontSize: '0.58rem' }}
+            >
+              {status.label}
+            </span>
           </div>
           {project.tagline && (
-            <p style={{ color: 'var(--muted)', fontSize: '0.8rem', lineHeight: 1.5 }}>{project.tagline}</p>
+            <p className="text-sm" style={{ color: 'var(--muted)', lineHeight: 1.5 }}>{project.tagline}</p>
           )}
         </div>
       </div>

@@ -3,12 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 
-interface Strip {
-  _id: string
-  image: string
-  altText?: string
-}
-
+interface Strip { _id: string; image: string; altText?: string }
 const SHARE_BASE = 'https://hifromnimesh.vercel.app/strip'
 
 export default function CalvinCarousel({ strips }: { strips: Strip[] }) {
@@ -17,14 +12,13 @@ export default function CalvinCarousel({ strips }: { strips: Strip[] }) {
 
   if (strips.length === 0) {
     return (
-      <div className="rounded-lg p-6 text-center" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid var(--border)' }}>
+      <div className="rounded-lg p-6 text-center" style={{ background: 'var(--surface-2)', border: '1px solid var(--border-solid)' }}>
         <p className="mono" style={{ color: 'var(--muted)' }}>STRIPS COMING SOON...</p>
       </div>
     )
   }
 
   const strip = strips[current]
-
   const handleShare = async () => {
     await navigator.clipboard.writeText(`${SHARE_BASE}/${strip._id}`)
     setCopied(true)
@@ -33,24 +27,24 @@ export default function CalvinCarousel({ strips }: { strips: Strip[] }) {
 
   return (
     <div>
-      <div className="rounded-lg overflow-hidden mb-3" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid var(--border)' }}>
+      <div className="rounded-lg overflow-hidden mb-3" style={{ background: 'var(--surface-2)', border: '1px solid var(--border-solid)' }}>
         <div className="relative w-full" style={{ aspectRatio: '3/1' }}>
           <Image src={strip.image} alt={strip.altText || 'Calvin and Hobbes'} fill className="object-contain" unoptimized />
         </div>
       </div>
       <div className="flex items-center justify-between">
         <div className="flex gap-1 items-center">
-          <button onClick={() => setCurrent((c) => (c - 1 + strips.length) % strips.length)}
-            className="mono px-2.5 py-1.5 rounded transition-colors hover:text-[var(--text)]"
-            style={{ color: 'var(--muted)', border: '1px solid var(--border)', fontSize: '0.65rem' }}>←</button>
-          <button onClick={() => setCurrent((c) => (c + 1) % strips.length)}
-            className="mono px-2.5 py-1.5 rounded transition-colors hover:text-[var(--text)]"
-            style={{ color: 'var(--muted)', border: '1px solid var(--border)', fontSize: '0.65rem' }}>→</button>
+          <button onClick={() => setCurrent(c => (c - 1 + strips.length) % strips.length)}
+            className="mono px-2.5 py-1.5 rounded transition-colors hover:bg-[var(--surface-2)]"
+            style={{ border: '1px solid var(--border-solid)', color: 'var(--muted)', fontSize: '0.65rem' }}>←</button>
+          <button onClick={() => setCurrent(c => (c + 1) % strips.length)}
+            className="mono px-2.5 py-1.5 rounded transition-colors hover:bg-[var(--surface-2)]"
+            style={{ border: '1px solid var(--border-solid)', color: 'var(--muted)', fontSize: '0.65rem' }}>→</button>
           <span className="mono ml-1" style={{ color: 'var(--muted)', fontSize: '0.6rem' }}>{current + 1}/{strips.length}</span>
         </div>
         <button onClick={handleShare}
-          className="mono px-3 py-1.5 rounded-full transition-all hover:bg-white hover:text-[var(--bg)]"
-          style={{ border: '1px solid var(--border)', color: copied ? '#4ADE80' : 'var(--muted)', fontSize: '0.65rem' }}>
+          className="mono px-3 py-1.5 rounded-full transition-colors hover:bg-[var(--surface-2)]"
+          style={{ border: '1px solid var(--border-solid)', color: copied ? 'var(--green)' : 'var(--muted)', fontSize: '0.65rem' }}>
           {copied ? 'COPIED!' : 'SHARE STRIP'}
         </button>
       </div>

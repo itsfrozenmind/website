@@ -30,7 +30,7 @@ const AMBIENT_SEQ = [
 
 const SYMBOLS = ['♪', '♫', '♩', '♬', '♥', '☆', '&', '?', '!', '*', '+', '=', '~', '#', '○', '<', '∿', '≈', '…', '·']
 const MUSIC_SYMS = ['♪', '♫', '♩', '♬']
-const PLAY_COLORS = ['rgba(240,237,232,', 'rgba(100,210,200,', 'rgba(220,100,180,', 'rgba(245,230,66,']
+const PLAY_COLORS = ['rgba(30,28,24,', 'rgba(91,107,73,', 'rgba(196,112,64,', 'rgba(91,138,88,']
 
 interface Sym {
   x: number; y: number; char: string; size: number

@@ -1,16 +1,18 @@
 @import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Space+Mono:ital@0;1&family=Inter:opsz,wght@14..32,300;14..32,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Space+Mono:ital@0;1&family=Inter:opsz,wght@14..32,300;14..32,400&display=swap');
 
 :root {
-  --bg: #07070A;
-  --surface: rgba(255,255,255,0.03);
-  --surface-2: rgba(255,255,255,0.05);
-  --text: #F0EDE8;
-  --muted: rgba(240,237,232,0.4);
-  --accent: #F0EDE8;
-  --border: rgba(255,255,255,0.08);
-  --glow: rgba(200,210,255,0.15);
+  --bg: #EDEAD8;
+  --surface: #E4E0CE;
+  --surface-2: #D8D4C2;
+  --text: #1E1C18;
+  --muted: #7A7568;
+  --accent: #5B6B49;
+  --border: rgba(30,28,24,0.1);
+  --border-solid: #D4D0BE;
+  --green: #5B8A58;
+  --amber: #C47040;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -22,7 +24,6 @@ body {
   font-family: 'Inter', sans-serif;
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
 }
 
 h1, h2, h3 {
@@ -32,43 +33,37 @@ h1, h2, h3 {
 
 .mono {
   font-family: 'Space Mono', monospace;
-  font-size: 0.7rem;
-  letter-spacing: 0.08em;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
+  from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes twinkle {
-  0%, 100% { opacity: 0.2; }
-  50% { opacity: 0.9; }
+@keyframes mascot-leg-l {
+  from { transform: rotate(-20deg); }
+  to   { transform: rotate(20deg); }
 }
 
-@keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 40px 10px rgba(200,210,255,0.12), 0 0 80px 20px rgba(200,210,255,0.06); }
-  50% { box-shadow: 0 0 60px 15px rgba(200,210,255,0.18), 0 0 120px 30px rgba(200,210,255,0.08); }
+@keyframes mascot-leg-r {
+  from { transform: rotate(20deg); }
+  to   { transform: rotate(-20deg); }
 }
 
-@keyframes blink-cursor {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+@keyframes mascot-bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-3px); }
 }
 
-.fade-up { animation: fadeUp 0.8s ease forwards; }
-
-.orb {
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #ffffff, #d0d8f0 40%, #8090c0 70%, #4050a0);
-  animation: pulse-glow 4s ease-in-out infinite;
-}
+.fade-up { animation: fadeUp 0.6s ease forwards; }
 
 .status-dot {
   display: inline-block;
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: #4ADE80;
-  box-shadow: 0 0 6px #4ADE80;
+  background: var(--green);
+  box-shadow: 0 0 5px var(--green);
 }

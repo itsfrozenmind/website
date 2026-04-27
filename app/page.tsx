@@ -4,12 +4,11 @@ import Nav from '@/components/Nav'
 import Hero from '@/components/Hero'
 import Building from '@/components/Building'
 import Experience from '@/components/Experience'
-import KnowMe from '@/components/KnowMe'
 import MusicSection from '@/components/MusicSection'
+import KnowMe from '@/components/KnowMe'
 import Footer from '@/components/Footer'
-import StarField from '@/components/StarField'
 import StatusBar from '@/components/StatusBar'
-import Astronaut from '@/components/Astronaut'
+import PixelMascot from '@/components/PixelMascot'
 
 export const revalidate = 60
 
@@ -22,10 +21,9 @@ export default async function Home() {
 
   return (
     <>
-      <StarField />
       <StatusBar />
-      <Astronaut />
-      <main className="relative">
+      <PixelMascot />
+      <main>
         <Nav />
         <Hero />
         <Building projects={projects} />

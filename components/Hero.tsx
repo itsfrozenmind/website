@@ -1,34 +1,40 @@
-import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6">
-      <div className="orb absolute" style={{ width: '80px', height: '80px', top: '22%', left: '52%', transform: 'translateX(-50%)' }} />
-
-      <div className="relative z-10 fade-up">
-        <p className="mono mb-4" style={{ color: 'var(--muted)' }}>WELCOME TO</p>
-        <h1 style={{ fontSize: 'clamp(3.5rem, 10vw, 7rem)', lineHeight: 1.0, marginBottom: '2rem', fontWeight: 300, letterSpacing: '-0.01em' }}>
-          Nimesh&apos;s Universe
-        </h1>
-        <p style={{ color: 'var(--muted)', fontSize: '0.95rem', maxWidth: '400px', margin: '0 auto 2.5rem', lineHeight: 1.7, fontStyle: 'italic' }}>
-          breaker, builder and explorer<br />of the shenanigans of the world.
-        </p>
-        <div className="flex flex-col items-center gap-3">
-          <Link
-            href="#building"
-            className="mono px-6 py-2.5 rounded-full transition-all hover:bg-white hover:text-[var(--bg)]"
-            style={{ border: '1px solid rgba(240,237,232,0.3)', color: 'var(--text)', fontSize: '0.7rem', letterSpacing: '0.1em' }}
-          >
-            EXPLORE →
-          </Link>
-          <p className="mono" style={{ color: 'var(--muted)', fontSize: '0.65rem' }}>SCROLL TO EXPLORE</p>
+    <section className="max-w-5xl mx-auto px-6 md:px-12 pt-14 pb-20 fade-up">
+      <div className="flex items-start gap-5 mb-10">
+        <Image
+          src="https://ca.slack-edge.com/TR5LSGPS7-U0A8HGB0B8D-7c45095e0d94-512"
+          alt="Nimesh"
+          width={72}
+          height={72}
+          className="rounded-xl flex-shrink-0"
+          style={{ border: '1.5px solid var(--border-solid)' }}
+          unoptimized
+        />
+        <div>
+          <p className="mono mb-2" style={{ color: 'var(--muted)' }}>FINAL YEAR · IIT GUWAHATI</p>
+          <h1 style={{ fontSize: 'clamp(2.4rem, 6vw, 4rem)', lineHeight: 1.05 }}>
+            Nimesh
+          </h1>
+          <p className="mt-2" style={{ color: 'var(--muted)', fontSize: '1rem', fontStyle: 'italic', fontFamily: 'Cormorant Garamond, serif' }}>
+            breaker, builder and explorer of the shenanigans of the world.
+          </p>
         </div>
       </div>
 
-      <div className="absolute bottom-16 left-0 right-0 text-center px-6">
-        <p className="mono" style={{ color: 'var(--muted)', fontSize: '0.65rem', letterSpacing: '0.15em' }}>
-          <span style={{ color: 'var(--text)' }}>BUILDING</span> IS OUT THERE, WAITING · TO BE DONE. WHY NOT <span style={{ color: 'var(--text)' }}>BY YOU?</span>
-        </p>
+      <div className="flex flex-wrap gap-2">
+        <span className="mono flex items-center gap-2 px-3 py-1.5 rounded-full" style={{ background: 'var(--surface)', border: '1px solid var(--border-solid)', color: 'var(--muted)' }}>
+          <span className="status-dot" />
+          Building SBNRI
+        </span>
+        <span className="mono px-3 py-1.5 rounded-full" style={{ background: 'var(--surface)', border: '1px solid var(--border-solid)', color: 'var(--muted)' }}>
+          5 things shipped
+        </span>
+        <span className="mono px-3 py-1.5 rounded-full" style={{ background: 'var(--surface)', border: '1px solid var(--border-solid)', color: 'var(--muted)' }}>
+          More cooking →
+        </span>
       </div>
     </section>
   )

@@ -1,12 +1,8 @@
 import ProjectCard from './ProjectCard'
 
 interface Project {
-  _id: string
-  title: string
-  slug: { current: string }
-  tagline: string
-  status: string
-  image?: string
+  _id: string; title: string; slug: { current: string }
+  tagline: string; status: string; image?: string
 }
 
 const fallbackProjects = [
@@ -19,21 +15,17 @@ const fallbackProjects = [
 
 export default function Building({ projects }: { projects: Project[] }) {
   const data = projects.length > 0 ? projects : fallbackProjects
-
   return (
-    <section id="building" className="relative z-10 max-w-5xl mx-auto px-6 md:px-12 py-24">
-      <div className="flex items-end justify-between mb-10">
+    <section id="building" className="max-w-5xl mx-auto px-6 md:px-12 pb-20">
+      <div className="flex items-end justify-between mb-6">
         <div>
-          <p className="mono mb-2" style={{ color: 'var(--muted)' }}>01 — WORK</p>
-          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 300 }}>Building</h2>
+          <p className="mono mb-1" style={{ color: 'var(--muted)' }}>01. Building</p>
+          <h2 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)', fontWeight: 300 }}>Things I&apos;ve made</h2>
         </div>
         <span className="mono" style={{ color: 'var(--muted)' }}>{data.length} projects</span>
       </div>
-
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-        {data.map((project) => (
-          <ProjectCard key={project._id} project={project} />
-        ))}
+        {data.map((p) => <ProjectCard key={p._id} project={p} />)}
       </div>
     </section>
   )
