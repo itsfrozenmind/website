@@ -8,6 +8,7 @@ import KnowMe from '@/components/KnowMe'
 import Footer from '@/components/Footer'
 import StarField from '@/components/StarField'
 import StatusBar from '@/components/StatusBar'
+import Astronaut from '@/components/Astronaut'
 
 export const revalidate = 60
 
@@ -22,6 +23,7 @@ export default async function Home() {
     <>
       <StarField />
       <StatusBar />
+      <Astronaut />
       <main className="relative">
         <Nav />
         <Hero />

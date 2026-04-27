@@ -20,8 +20,9 @@ export default function ProjectCard({ project }: { project: Project }) {
   const status = statusConfig[project.status] || statusConfig.Paused
 
   return (
-    <Link href={`/${project.slug.current}`} className="group block">
+    <Link href={`/${project.slug.current}`} className="group block" data-project-card="true">
       <div
+        data-project-card="true"
         className="rounded-lg overflow-hidden transition-all duration-300 group-hover:scale-[1.02]"
         style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid var(--border)' }}
       >
