@@ -17,8 +17,8 @@ export default function CalvinCarousel({ strips }: { strips: Strip[] }) {
 
   if (strips.length === 0) {
     return (
-      <div className="rounded-xl p-8 text-center" style={{ background: 'var(--border)' }}>
-        <p style={{ color: 'var(--muted)', fontStyle: 'italic' }}>Calvin & Hobbes strips coming soon...</p>
+      <div className="rounded-lg p-6 text-center" style={{ background: 'var(--surface-2)', border: '1px solid var(--border)' }}>
+        <p className="text-xs" style={{ color: 'var(--muted)' }}>Strips coming soon...</p>
       </div>
     )
   }
@@ -26,53 +26,53 @@ export default function CalvinCarousel({ strips }: { strips: Strip[] }) {
   const strip = strips[current]
 
   const handleShare = async () => {
-    const url = `${SHARE_BASE}/${strip._id}`
-    await navigator.clipboard.writeText(url)
+    await navigator.clipboard.writeText(`${SHARE_BASE}/${strip._id}`)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
   }
 
   return (
     <div>
-      <div className="rounded-xl overflow-hidden" style={{ background: 'var(--border)' }}>
-        <div className="relative aspect-[3/1] w-full" style={{ background: '#e8e0d4' }}>
+      <div className="rounded-lg overflow-hidden mb-3" style={{ background: 'var(--surface-2)', border: '1px solid var(--border)' }}>
+        <div className="relative w-full" style={{ aspectRatio: '3/1' }}>
           <Image src={strip.image} alt={strip.altText || 'Calvin and Hobbes'} fill className="object-contain" unoptimized />
         </div>
       </div>
 
-      <div className="flex items-center justify-between mt-3">
-        <div className="flex gap-2">
+      <div className="flex items-center justify-between">
+        <div className="flex gap-1">
           <button
             onClick={() => setCurrent((c) => (c - 1 + strips.length) % strips.length)}
-            className="text-sm px-3 py-1.5 rounded-lg transition-colors hover:bg-[var(--border)]"
-            style={{ color: 'var(--muted)' }}
+            className="text-xs px-2.5 py-1.5 rounded transition-colors hover:text-[var(--text)]"
+            style={{ color: 'var(--muted)', border: '1px solid var(--border)' }}
           >
-            ← prev
+            ←
           </button>
           <button
             onClick={() => setCurrent((c) => (c + 1) % strips.length)}
-            className="text-sm px-3 py-1.5 rounded-lg transition-colors hover:bg-[var(--border)]"
-            style={{ color: 'var(--muted)' }}
+            className="text-xs px-2.5 py-1.5 rounded transition-colors hover:text-[var(--text)]"
+            style={{ color: 'var(--muted)', border: '1px solid var(--border)' }}
           >
-            next →
+            →
           </button>
+          <span className="text-xs px-2.5 py-1.5" style={{ color: 'var(--muted)' }}>
+            {current + 1}/{strips.length}
+          </span>
         </div>
-
         <button
           onClick={handleShare}
-          className="text-sm px-4 py-1.5 rounded-lg transition-all"
+          className="text-xs px-3 py-1.5 rounded transition-all"
           style={{
-            background: copied ? '#4A7C59' : 'var(--accent)',
-            color: '#fff',
+            background: copied ? 'rgba(74,222,128,0.1)' : 'var(--accent-dim)',
+            color: copied ? '#4ADE80' : 'var(--accent)',
+            border: `1px solid ${copied ? 'rgba(74,222,128,0.3)' : 'rgba(245,230,66,0.2)'}`,
+            fontFamily: 'Space Grotesk, sans-serif',
+            fontWeight: 500,
           }}
         >
-          {copied ? 'Link copied!' : 'Share this strip'}
+          {copied ? 'Copied!' : 'Share strip'}
         </button>
       </div>
-
-      <p className="text-xs mt-2 text-center" style={{ color: 'var(--muted)' }}>
-        {current + 1} / {strips.length}
-      </p>
     </div>
   )
 }
