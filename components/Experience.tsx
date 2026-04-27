@@ -15,32 +15,29 @@ export default function Experience({ items }: { items: ExperienceItem[] }) {
   const data = items.length > 0 ? items : fallback
 
   return (
-    <section className="max-w-5xl mx-auto px-6 md:px-12 pb-20">
-      <div className="mb-6">
-        <span className="text-xs uppercase tracking-widest mb-1 block" style={{ color: 'var(--muted)' }}>02 — experience</span>
-        <h2 style={{ fontSize: '1.3rem' }}>Where I&apos;ve been</h2>
+    <section className="relative z-10 max-w-5xl mx-auto px-6 md:px-12 pb-24">
+      <div className="mb-10">
+        <p className="mono mb-2" style={{ color: 'var(--muted)' }}>02 — EXPERIENCE</p>
+        <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 300 }}>Where I&apos;ve been</h2>
       </div>
-
-      <div className="flex flex-col gap-0">
+      <div>
         {data.map((item, i) => (
           <div
             key={item._id}
-            className="flex items-start justify-between py-5 gap-4"
+            className="flex items-start justify-between py-6 gap-4"
             style={{ borderBottom: i < data.length - 1 ? '1px solid var(--border)' : 'none' }}
           >
             <div className="flex-1">
-              <div className="flex items-center gap-2 mb-1">
-                <p style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '1rem', fontWeight: 500 }}>{item.role}</p>
-                <span className="text-xs px-2 py-0.5 rounded" style={{ background: 'var(--surface)', border: '1px solid var(--border)', color: 'var(--muted)' }}>
-                  {item.company}
-                </span>
+              <div className="flex items-center gap-3 mb-1">
+                <h3 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.3rem', fontWeight: 400 }}>{item.role}</h3>
+                <span className="mono" style={{ color: 'var(--muted)' }}>{item.company}</span>
               </div>
               {item.description && (
-                <p className="text-sm leading-relaxed" style={{ color: 'var(--muted)' }}>{item.description}</p>
+                <p style={{ color: 'var(--muted)', fontSize: '0.85rem', lineHeight: 1.6 }}>{item.description}</p>
               )}
             </div>
             {item.period && (
-              <span className="text-xs flex-shrink-0" style={{ color: 'var(--muted)', fontFamily: 'Space Grotesk, sans-serif' }}>{item.period}</span>
+              <span className="mono flex-shrink-0" style={{ color: 'var(--muted)', fontSize: '0.65rem' }}>{item.period}</span>
             )}
           </div>
         ))}

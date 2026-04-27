@@ -1,50 +1,34 @@
-import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Hero() {
   return (
-    <section className="max-w-5xl mx-auto px-6 md:px-12 pt-16 pb-20">
-      <div className="flex flex-col md:flex-row md:items-start gap-8 mb-10">
-        <div className="flex-shrink-0">
-          <div className="relative">
-            <Image
-              src="https://ca.slack-edge.com/TR5LSGPS7-U0A8HGB0B8D-7c45095e0d94-512"
-              alt="Nimesh"
-              width={80}
-              height={80}
-              className="rounded-lg"
-              style={{ border: '1px solid var(--border)' }}
-              unoptimized
-            />
-            <span className="absolute -bottom-1 -right-1 flex items-center justify-center w-4 h-4 rounded-full" style={{ background: 'var(--bg)', border: '1px solid var(--border)' }}>
-              <span className="pulse-dot" style={{ width: '6px', height: '6px' }} />
-            </span>
-          </div>
-        </div>
+    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6">
+      <div className="orb absolute" style={{ width: '80px', height: '80px', top: '22%', left: '52%', transform: 'translateX(-50%)' }} />
 
-        <div className="flex-1">
-          <div className="flex items-center gap-2 mb-3">
-            <span className="text-xs uppercase tracking-widest" style={{ color: 'var(--muted)' }}>v1.0 — Final Year, IIT Guwahati</span>
-          </div>
-          <h1 className="cursor" style={{ fontSize: 'clamp(2.2rem, 6vw, 3.8rem)', lineHeight: 1.05, marginBottom: '0.75rem', fontFamily: 'Space Grotesk, sans-serif', fontWeight: 500 }}>
-            Nimesh
-          </h1>
-          <p style={{ color: 'var(--muted)', fontSize: '1rem', maxWidth: '480px', lineHeight: 1.6 }}>
-            breaker, builder and explorer of the shenanigans of the world.
-          </p>
+      <div className="relative z-10 fade-up">
+        <p className="mono mb-4" style={{ color: 'var(--muted)' }}>WELCOME TO</p>
+        <h1 style={{ fontSize: 'clamp(3.5rem, 10vw, 7rem)', lineHeight: 1.0, marginBottom: '2rem', fontWeight: 300, letterSpacing: '-0.01em' }}>
+          Nimesh&apos;s Universe
+        </h1>
+        <p style={{ color: 'var(--muted)', fontSize: '0.95rem', maxWidth: '400px', margin: '0 auto 2.5rem', lineHeight: 1.7, fontStyle: 'italic' }}>
+          breaker, builder and explorer<br />of the shenanigans of the world.
+        </p>
+        <div className="flex flex-col items-center gap-3">
+          <Link
+            href="#building"
+            className="mono px-6 py-2.5 rounded-full transition-all hover:bg-white hover:text-[var(--bg)]"
+            style={{ border: '1px solid rgba(240,237,232,0.3)', color: 'var(--text)', fontSize: '0.7rem', letterSpacing: '0.1em' }}
+          >
+            EXPLORE →
+          </Link>
+          <p className="mono" style={{ color: 'var(--muted)', fontSize: '0.65rem' }}>SCROLL TO EXPLORE</p>
         </div>
       </div>
 
-      <div className="flex flex-wrap gap-3">
-        <div className="flex items-center gap-2 text-xs px-3 py-1.5 rounded" style={{ background: 'var(--surface)', border: '1px solid var(--border)', color: 'var(--muted)' }}>
-          <span className="pulse-dot" />
-          Building SBNRI
-        </div>
-        <div className="text-xs px-3 py-1.5 rounded" style={{ background: 'var(--surface)', border: '1px solid var(--border)', color: 'var(--muted)' }}>
-          5 things shipped
-        </div>
-        <div className="text-xs px-3 py-1.5 rounded" style={{ background: 'var(--surface)', border: '1px solid var(--border)', color: 'var(--muted)' }}>
-          More cooking →
-        </div>
+      <div className="absolute bottom-16 left-0 right-0 text-center px-6">
+        <p className="mono" style={{ color: 'var(--muted)', fontSize: '0.65rem', letterSpacing: '0.15em' }}>
+          <span style={{ color: 'var(--text)' }}>BUILDING</span> IS OUT THERE, WAITING · TO BE DONE. WHY NOT <span style={{ color: 'var(--text)' }}>BY YOU?</span>
+        </p>
       </div>
     </section>
   )

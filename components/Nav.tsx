@@ -2,15 +2,17 @@ import Link from 'next/link'
 
 export default function Nav() {
   return (
-    <nav className="flex items-center justify-between py-5 px-6 md:px-12 max-w-5xl mx-auto w-full">
-      <Link href="/" style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '0.95rem', color: 'var(--accent)', fontWeight: 500, letterSpacing: '0.02em' }}>
-        nimesh<span style={{ color: 'var(--muted)' }}>.exe</span>
+    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between py-5 px-6 md:px-12">
+      <Link href="/" className="mono" style={{ color: 'var(--muted)' }}>
+        NIMESH
       </Link>
-      <div className="flex items-center gap-5 text-xs" style={{ color: 'var(--muted)', letterSpacing: '0.05em' }}>
-        <a href="https://linkedin.com/in/nimeshgurjar" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--text)] transition-colors uppercase">LinkedIn</a>
-        <a href="https://instagram.com/itsfrozenmind" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--text)] transition-colors uppercase">Instagram</a>
-        <a href="https://cal.com/nimesh-s4ysft/15min" target="_blank" rel="noopener noreferrer" className="transition-colors uppercase px-3 py-1.5 rounded" style={{ background: 'var(--accent-dim)', color: 'var(--accent)', border: '1px solid rgba(245,230,66,0.2)' }}>
-          Let&apos;s talk
+      <div className="flex items-center gap-6 mono" style={{ color: 'var(--muted)' }}>
+        <a href="https://linkedin.com/in/nimeshgurjar" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--text)] transition-colors">LI</a>
+        <a href="https://instagram.com/itsfrozenmind" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--text)] transition-colors">IG</a>
+        <a href="https://cal.com/nimesh-s4ysft/15min" target="_blank" rel="noopener noreferrer"
+          className="hover:text-[var(--text)] transition-colors px-3 py-1.5 rounded-full"
+          style={{ border: '1px solid var(--border)' }}>
+          TALK →
         </a>
       </div>
     </nav>

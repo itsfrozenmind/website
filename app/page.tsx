@@ -6,6 +6,8 @@ import Building from '@/components/Building'
 import Experience from '@/components/Experience'
 import KnowMe from '@/components/KnowMe'
 import Footer from '@/components/Footer'
+import StarField from '@/components/StarField'
+import StatusBar from '@/components/StatusBar'
 
 export const revalidate = 60
 
@@ -17,13 +19,17 @@ export default async function Home() {
   ])
 
   return (
-    <main>
-      <Nav />
-      <Hero />
-      <Building projects={projects} />
-      <Experience items={experience} />
-      <KnowMe strips={strips} />
-      <Footer />
-    </main>
+    <>
+      <StarField />
+      <StatusBar />
+      <main className="relative">
+        <Nav />
+        <Hero />
+        <Building projects={projects} />
+        <Experience items={experience} />
+        <KnowMe strips={strips} />
+        <Footer />
+      </main>
+    </>
   )
 }

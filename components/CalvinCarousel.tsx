@@ -17,8 +17,8 @@ export default function CalvinCarousel({ strips }: { strips: Strip[] }) {
 
   if (strips.length === 0) {
     return (
-      <div className="rounded-lg p-6 text-center" style={{ background: 'var(--surface-2)', border: '1px solid var(--border)' }}>
-        <p className="text-xs" style={{ color: 'var(--muted)' }}>Strips coming soon...</p>
+      <div className="rounded-lg p-6 text-center" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid var(--border)' }}>
+        <p className="mono" style={{ color: 'var(--muted)' }}>STRIPS COMING SOON...</p>
       </div>
     )
   }
@@ -33,44 +33,25 @@ export default function CalvinCarousel({ strips }: { strips: Strip[] }) {
 
   return (
     <div>
-      <div className="rounded-lg overflow-hidden mb-3" style={{ background: 'var(--surface-2)', border: '1px solid var(--border)' }}>
+      <div className="rounded-lg overflow-hidden mb-3" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid var(--border)' }}>
         <div className="relative w-full" style={{ aspectRatio: '3/1' }}>
           <Image src={strip.image} alt={strip.altText || 'Calvin and Hobbes'} fill className="object-contain" unoptimized />
         </div>
       </div>
-
       <div className="flex items-center justify-between">
-        <div className="flex gap-1">
-          <button
-            onClick={() => setCurrent((c) => (c - 1 + strips.length) % strips.length)}
-            className="text-xs px-2.5 py-1.5 rounded transition-colors hover:text-[var(--text)]"
-            style={{ color: 'var(--muted)', border: '1px solid var(--border)' }}
-          >
-            ←
-          </button>
-          <button
-            onClick={() => setCurrent((c) => (c + 1) % strips.length)}
-            className="text-xs px-2.5 py-1.5 rounded transition-colors hover:text-[var(--text)]"
-            style={{ color: 'var(--muted)', border: '1px solid var(--border)' }}
-          >
-            →
-          </button>
-          <span className="text-xs px-2.5 py-1.5" style={{ color: 'var(--muted)' }}>
-            {current + 1}/{strips.length}
-          </span>
+        <div className="flex gap-1 items-center">
+          <button onClick={() => setCurrent((c) => (c - 1 + strips.length) % strips.length)}
+            className="mono px-2.5 py-1.5 rounded transition-colors hover:text-[var(--text)]"
+            style={{ color: 'var(--muted)', border: '1px solid var(--border)', fontSize: '0.65rem' }}>←</button>
+          <button onClick={() => setCurrent((c) => (c + 1) % strips.length)}
+            className="mono px-2.5 py-1.5 rounded transition-colors hover:text-[var(--text)]"
+            style={{ color: 'var(--muted)', border: '1px solid var(--border)', fontSize: '0.65rem' }}>→</button>
+          <span className="mono ml-1" style={{ color: 'var(--muted)', fontSize: '0.6rem' }}>{current + 1}/{strips.length}</span>
         </div>
-        <button
-          onClick={handleShare}
-          className="text-xs px-3 py-1.5 rounded transition-all"
-          style={{
-            background: copied ? 'rgba(74,222,128,0.1)' : 'var(--accent-dim)',
-            color: copied ? '#4ADE80' : 'var(--accent)',
-            border: `1px solid ${copied ? 'rgba(74,222,128,0.3)' : 'rgba(245,230,66,0.2)'}`,
-            fontFamily: 'Space Grotesk, sans-serif',
-            fontWeight: 500,
-          }}
-        >
-          {copied ? 'Copied!' : 'Share strip'}
+        <button onClick={handleShare}
+          className="mono px-3 py-1.5 rounded-full transition-all hover:bg-white hover:text-[var(--bg)]"
+          style={{ border: '1px solid var(--border)', color: copied ? '#4ADE80' : 'var(--muted)', fontSize: '0.65rem' }}>
+          {copied ? 'COPIED!' : 'SHARE STRIP'}
         </button>
       </div>
     </div>
