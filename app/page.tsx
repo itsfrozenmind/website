@@ -10,6 +10,9 @@ import Footer from '@/components/Footer'
 import StatusBar from '@/components/StatusBar'
 import PixelMascot from '@/components/PixelMascot'
 import CrosshairCursor from '@/components/CrosshairCursor'
+import StarField from '@/components/StarField'
+import ShootingStars from '@/components/ShootingStars'
+import SparkBurst from '@/components/SparkBurst'
 
 export const revalidate = 60
 
@@ -23,6 +26,9 @@ export default async function Home() {
   return (
     <>
       <CrosshairCursor />
+      <StarField />
+      <ShootingStars />
+      <SparkBurst />
       <StatusBar />
       <PixelMascot />
       <main>

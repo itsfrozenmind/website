@@ -252,7 +252,7 @@ export default function MusicSection() {
   }, [stopSequencer])
 
   return (
-    <section className="relative z-10 max-w-5xl mx-auto px-6 md:px-12 pb-24">
+    <section id="vibes" className="relative z-10 max-w-5xl mx-auto px-6 md:px-12 pb-24">
       <div className="mb-6">
         <p className="mono mb-2" style={{ color: 'var(--muted)' }}>04 — VIBES</p>
         <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', fontWeight: 300 }}>
