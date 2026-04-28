@@ -9,6 +9,7 @@ import KnowMe from '@/components/KnowMe'
 import Footer from '@/components/Footer'
 import StatusBar from '@/components/StatusBar'
 import PixelMascot from '@/components/PixelMascot'
+import CrosshairCursor from '@/components/CrosshairCursor'
 
 export const revalidate = 60
 
@@ -21,6 +22,7 @@ export default async function Home() {
 
   return (
     <>
+      <CrosshairCursor />
       <StatusBar />
       <PixelMascot />
       <main>

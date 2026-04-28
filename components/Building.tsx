@@ -16,13 +16,13 @@ const fallbackProjects = [
 export default function Building({ projects }: { projects: Project[] }) {
   const data = projects.length > 0 ? projects : fallbackProjects
   return (
-    <section id="building" className="max-w-5xl mx-auto px-6 md:px-12 pb-20">
+    <section id="building" className="relative z-10 max-w-5xl mx-auto px-6 md:px-12 pb-20">
       <div className="flex items-end justify-between mb-6">
         <div>
-          <p className="mono mb-1" style={{ color: 'var(--muted)' }}>01. Building</p>
-          <h2 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)', fontWeight: 300 }}>Things I&apos;ve made</h2>
+          <p className="mono mb-1" style={{ color: 'var(--muted)' }}>// 01 — WORK</p>
+          <h2 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)', fontWeight: 300, color: 'var(--text)' }}>Things I&apos;ve made</h2>
         </div>
-        <span className="mono" style={{ color: 'var(--muted)' }}>{data.length} projects</span>
+        <span className="mono" style={{ color: 'var(--muted)' }}>[{data.length} objects]</span>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
         {data.map((p) => <ProjectCard key={p._id} project={p} />)}
