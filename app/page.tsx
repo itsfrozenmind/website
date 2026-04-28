@@ -13,6 +13,7 @@ import CrosshairCursor from '@/components/CrosshairCursor'
 import StarField from '@/components/StarField'
 import ShootingStars from '@/components/ShootingStars'
 import SparkBurst from '@/components/SparkBurst'
+import WelcomeOverlay from '@/components/WelcomeOverlay'
 
 export const revalidate = 60
 
@@ -25,6 +26,7 @@ export default async function Home() {
 
   return (
     <>
+      <WelcomeOverlay />
       <CrosshairCursor />
       <StarField />
       <ShootingStars />
